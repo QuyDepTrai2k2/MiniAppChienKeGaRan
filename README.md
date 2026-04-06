@@ -1,68 +1,68 @@
-# Chien Ke Ga Ran
+# Chiến Kê Gà Rán
 
-Game ban ga (Chicken Invaders style) chay tren Zalo Mini App.
+Game bắn gà (Chicken Invaders style) chạy trên Zalo Mini App.
 
-Nguoi choi dieu khien tau vu tru, ban ha cac doi quan ga qua 5 man choi voi do kho tang dan.
+Người chơi điều khiển tàu vũ trụ, bắn hạ các đội quân gà qua 5 màn chơi với độ khó tăng dần.
 
 ## Gameplay
 
-- Dieu khien tau bang cham/keo (mobile) hoac click/keo chuot (desktop)
-- Tu dong ban dan lien tuc
-- Tieu diet het ga trong tung wave de qua man
-- Tranh trung ga va va cham voi ga
+- Điều khiển tàu bằng chạm/kéo (mobile) hoặc click/kéo chuột (desktop)
+- Tự động bắn đạn liên tục
+- Tiêu diệt hết gà trong từng wave để qua màn
+- Tránh trứng gà và va chạm với gà
 
-### Cac loai ga
+### Các loại gà
 
-| Loai | Mo ta |
+| Loại | Mô tả |
 |------|-------|
-| Normal Chicken | Ga thuong, dung yen tai vi tri, tha trung dinh ky |
-| Fast Chicken | Bay nhanh hon, tha trung nhieu hon |
-| Bomber Chicken | Co lon, di chuyen ngang, tha trung lien tuc |
+| Normal Chicken | Gà thường, đứng yên tại vị trí, thả trứng định kỳ |
+| Fast Chicken | Bay nhanh hơn, thả trứng nhiều hơn |
+| Bomber Chicken | Cỡ lớn, di chuyển ngang, thả trứng liên tục |
 
-### Cac man choi
+### Các màn chơi
 
-- **Man 1-2**: Ga thuong va ga nhanh, lam quen gameplay
-- **Man 3**: Xuat hien Bomber Chicken
-- **Man 4**: Ket hop ca 3 loai ga
-- **Man 5**: Boss wave - ga co mau cao, 3 wave lien tiep
+- **Màn 1-2**: Gà thường và gà nhanh, làm quen gameplay
+- **Màn 3**: Xuất hiện Bomber Chicken
+- **Màn 4**: Kết hợp cả 3 loại gà
+- **Màn 5**: Boss wave - gà có máu cao, 3 wave liên tiếp
 
 ## Tech Stack
 
-- **Platform**: Zalo Mini App (ZMP SDK + ZMP UI)
+- **Nền tảng**: Zalo Mini App (ZMP SDK + ZMP UI)
 - **Frontend**: React 18 + TypeScript
 - **Build**: Vite + zmp-vite-plugin
 - **Styling**: Tailwind CSS + SCSS
 - **Game Rendering**: HTML5 Canvas 2D
 
-## Cau truc du an
+## Cấu trúc dự án
 
 ```
 src/
 ├── app.ts                  # Entry point
 ├── components/             # React UI components
 │   ├── CustomButton.tsx
-│   ├── GameCanvas.tsx      # Canvas wrapper, khoi tao GameEngine
+│   ├── GameCanvas.tsx      # Canvas wrapper, khởi tạo GameEngine
 │   ├── GameOverMenu.tsx
 │   ├── GameWinMenu.tsx
 │   ├── LevelSelectionMenu.tsx
 │   ├── MainMenu.tsx
 │   └── layout.tsx
-├── game/                   # Game logic (khong phu thuoc React)
+├── game/                   # Game logic (không phụ thuộc React)
 │   ├── GameEngine.ts       # Game loop, update, render
-│   ├── AssetLoader.ts      # Tai hinh anh
-│   ├── InputManager.ts     # Xu ly touch/mouse
-│   ├── Player.ts           # Tau vu tru
-│   ├── Missile.ts          # Dan ban
-│   ├── Egg.ts              # Trung ga (dan cua enemy)
-│   ├── Collision.ts        # Phat hien va cham AABB
-│   ├── enemies/            # He thong enemy
+│   ├── AssetLoader.ts      # Tải hình ảnh
+│   ├── InputManager.ts     # Xử lý touch/mouse
+│   ├── Player.ts           # Tàu vũ trụ
+│   ├── Missile.ts          # Đạn bắn
+│   ├── Egg.ts              # Trứng gà (đạn của enemy)
+│   ├── Collision.ts        # Phát hiện va chạm AABB
+│   ├── enemies/            # Hệ thống enemy
 │   │   ├── enemyTypes.ts   # Interface IEnemy, config types
 │   │   ├── BaseEnemy.ts    # Abstract class chung
 │   │   ├── NormalChicken.ts
 │   │   ├── FastChicken.ts
 │   │   ├── BomberChicken.ts
-│   │   └── enemyRegistry.ts # Factory tao enemy theo type
-│   └── levels/             # Dinh nghia man choi
+│   │   └── enemyRegistry.ts # Factory tạo enemy theo type
+│   └── levels/             # Định nghĩa màn chơi
 │       ├── levelTypes.ts
 │       ├── level1.ts - level5.ts
 │       └── index.ts
@@ -70,49 +70,49 @@ src/
 │   ├── app.scss
 │   └── tailwind.scss
 ├── pages/
-│   └── index.tsx           # Trang chinh, quan ly game state
-└── static/images/          # Hinh anh game
+│   └── index.tsx           # Trang chính, quản lý game state
+└── static/images/          # Hình ảnh game
 ```
 
 ## Development
 
-### Yeu cau
+### Yêu cầu
 
 - [Node.js](https://nodejs.org/) (>= 14)
-- [Visual Studio Code](https://code.visualstudio.com/) (neu dung Extension)
+- [Visual Studio Code](https://code.visualstudio.com/) (nếu dùng Extension)
 
-### Cach 1: Zalo Mini App Extension (khuyen dung)
+### Cách 1: Zalo Mini App Extension (khuyên dùng)
 
-1. Cai [Zalo Mini App Extension](https://mini.zalo.me/docs/dev-tools) cho VS Code
-2. Mo project, vao tab **Home** > **Config App ID** > **Install Dependencies**
-3. Vao tab **Run** > chon launcher > **Start**
+1. Cài [Zalo Mini App Extension](https://mini.zalo.me/docs/dev-tools) cho VS Code
+2. Mở project, vào tab **Home** > **Config App ID** > **Install Dependencies**
+3. Vào tab **Run** > chọn launcher > **Start**
 
-### Cach 2: Zalo Mini App CLI
+### Cách 2: Zalo Mini App CLI
 
-1. Cai [Zalo Mini App CLI](https://mini.zalo.me/docs/dev-tools/cli/intro/)
-2. Chay:
+1. Cài [Zalo Mini App CLI](https://mini.zalo.me/docs/dev-tools/cli/intro/)
+2. Chạy:
    ```bash
    npm install
    zmp start
    ```
-3. Mo `localhost:3000` trong trinh duyet
+3. Mở `localhost:3000` trong trình duyệt
 
 ## Deployment
 
-### Dung Extension
+### Dùng Extension
 
-Vao tab **Deploy** > **Login** > **Deploy**
+Vào tab **Deploy** > **Login** > **Deploy**
 
-### Dung CLI
+### Dùng CLI
 
 ```bash
 zmp login
 zmp deploy
 ```
 
-Sau do quet ma QR trong Zalo de mo mini app.
+Sau đó quét mã QR trong Zalo để mở mini app.
 
-## Tai lieu tham khao
+## Tài liệu tham khảo
 
 - [Zalo Mini App](https://mini.zalo.me/)
 - [ZMP SDK](https://mini.zalo.me/documents/api/)
